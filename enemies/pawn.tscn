@@ -1,54 +1,52 @@
-[gd_scene load_steps=13 format=3 uid="uid://cticdfs7hnia8"]
+[gd_scene load_steps=11 format=3 uid="uid://cticdfs7hnia8"]
 
 [ext_resource type="Script" path="res://behaviours/follow_player.gd" id="1_0ndii"]
-[ext_resource type="Texture2D" uid="uid://dd6yukiv22714" path="res://assets/Tiny Swords (Update 010)/Factions/Knights/Troops/Pawn/Red/Pawn_Red.png" id="1_d5j8u"]
-[ext_resource type="Script" path="res://enemies/enemy.gd" id="1_qqcbl"]
-[ext_resource type="PackedScene" uid="uid://cel0wuauscsvq" path="res://misc/skull.tscn" id="2_4phqc"]
+[ext_resource type="Texture2D" uid="uid://dyqof4ro28450" path="res://assets/Tiny Swords/Factions/Knights/Troops/Pawn/Blue/Pawn_Blue.png" id="3_eisgy"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_nobwc"]
-atlas = ExtResource("1_d5j8u")
+[sub_resource type="AtlasTexture" id="AtlasTexture_fwsm6"]
+atlas = ExtResource("3_eisgy")
 region = Rect2(0, 192, 192, 192)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_340ro"]
-atlas = ExtResource("1_d5j8u")
+[sub_resource type="AtlasTexture" id="AtlasTexture_vabwd"]
+atlas = ExtResource("3_eisgy")
 region = Rect2(192, 192, 192, 192)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hicu5"]
-atlas = ExtResource("1_d5j8u")
+[sub_resource type="AtlasTexture" id="AtlasTexture_ersr7"]
+atlas = ExtResource("3_eisgy")
 region = Rect2(384, 192, 192, 192)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_u667i"]
-atlas = ExtResource("1_d5j8u")
+[sub_resource type="AtlasTexture" id="AtlasTexture_4iham"]
+atlas = ExtResource("3_eisgy")
 region = Rect2(576, 192, 192, 192)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jk6fn"]
-atlas = ExtResource("1_d5j8u")
+[sub_resource type="AtlasTexture" id="AtlasTexture_t6e64"]
+atlas = ExtResource("3_eisgy")
 region = Rect2(768, 192, 192, 192)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_m1ymu"]
-atlas = ExtResource("1_d5j8u")
+[sub_resource type="AtlasTexture" id="AtlasTexture_wd2it"]
+atlas = ExtResource("3_eisgy")
 region = Rect2(960, 192, 192, 192)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dj7ri"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_nobwc")
+"texture": SubResource("AtlasTexture_fwsm6")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_340ro")
+"texture": SubResource("AtlasTexture_vabwd")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_hicu5")
+"texture": SubResource("AtlasTexture_ersr7")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_u667i")
+"texture": SubResource("AtlasTexture_4iham")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_jk6fn")
+"texture": SubResource("AtlasTexture_t6e64")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_m1ymu")
+"texture": SubResource("AtlasTexture_wd2it")
 }],
 "loop": true,
 "name": &"default",
@@ -60,19 +58,14 @@ radius = 19.0
 height = 48.0
 
 [node name="Pawn" type="CharacterBody2D" groups=["enemies"]]
-script = ExtResource("1_qqcbl")
-health = 10
-death_prefab = ExtResource("2_4phqc")
+motion_mode = 1
+script = ExtResource("1_0ndii")
 
 [node name="AnimationSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_dj7ri")
 autoplay = "default"
-frame_progress = 0.0902692
+frame_progress = 0.47559
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(-1, -2)
+position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_r6ycv")
-
-[node name="FollowPlayer" type="Node" parent="."]
-script = ExtResource("1_0ndii")
-speed = 0.5

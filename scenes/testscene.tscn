@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dn8lxxiqnaqvi"]
+
+[ext_resource type="PackedScene" uid="uid://168ix467gg" path="res://player/goblin.tscn" id="1_ogfkm"]
+[ext_resource type="PackedScene" uid="uid://cticdfs7hnia8" path="res://enemies/pawn.tscn" id="2_ki433"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Goblin" parent="." instance=ExtResource("1_ogfkm")]
+position = Vector2(529, 298)
+
+[node name="Pawn" parent="." instance=ExtResource("2_ki433")]
+position = Vector2(776, 465)
+
+[node name="Pawn2" parent="." instance=ExtResource("2_ki433")]
+position = Vector2(292, 478)
+
+[node name="Pawn3" parent="." instance=ExtResource("2_ki433")]
+position = Vector2(673, 86)

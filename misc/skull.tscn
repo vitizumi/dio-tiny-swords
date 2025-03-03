@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cel0wuauscsvq"]
 
-[ext_resource type="Texture2D" uid="uid://gnpoojm2wtwp" path="res://assets/Tiny Swords (Update 010)/Factions/Knights/Troops/Dead/Dead.png" id="1_nnie8"]
+[ext_resource type="Texture2D" uid="uid://gnpoojm2wtwp" path="res://assets/Tiny Swords/Factions/Knights/Troops/Dead/Dead.png" id="1_nnie8"]
 
 [sub_resource type="Animation" id="Animation_7ixbo"]
 resource_name = "default"

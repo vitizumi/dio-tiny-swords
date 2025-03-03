@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://bjxpgwiyw73x8"]
 
-[ext_resource type="Texture2D" uid="uid://co7q3pjruede3" path="res://assets/Tiny Swords (Update 010)/Resources/Resources/M_Spawn.png" id="1_ueidx"]
+[ext_resource type="Texture2D" uid="uid://co7q3pjruede3" path="res://assets/Tiny Swords/Resources/Resources/M_Spawn.png" id="1_ueidx"]
 [ext_resource type="Script" path="res://behaviours/life-regen.gd" id="2_noq8i"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hk4q3"]

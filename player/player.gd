@@ -13,8 +13,11 @@ var attack_cooldown: float = 0.0
 var hitbox_cooldown: float = 0.0
 var input_vector: Vector2 = Vector2(0, 0)
 
+@export_category("Movement")
 @export var speed: float = 3
+@export_category("Attack")
 @export var sword_damage: int = 2
+@export_category("Health")
 @export var health: int = 50
 @export var max_health: int = 100
 @export var death_prefab: PackedScene

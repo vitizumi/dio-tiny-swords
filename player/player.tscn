@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_gc8bw"]
 [ext_resource type="PackedScene" uid="uid://cel0wuauscsvq" path="res://misc/skull.tscn" id="2_v75i7"]
-[ext_resource type="Texture2D" uid="uid://bjybo4vyan0sc" path="res://assets/Tiny Swords (Update 010)/Factions/Knights/Troops/Warrior/Blue/Warrior_Blue.png" id="2_vs6cx"]
+[ext_resource type="Texture2D" uid="uid://bjybo4vyan0sc" path="res://assets/Tiny Swords/Factions/Knights/Troops/Warrior/Blue/Warrior_Blue.png" id="2_vs6cx"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s0eux"]
 radius = 16.0
