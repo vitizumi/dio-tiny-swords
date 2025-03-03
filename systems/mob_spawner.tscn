@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://b1k52shbbxatn"]
 
 [ext_resource type="Script" path="res://systems/mob_spawner.gd" id="1_afxff"]
-[ext_resource type="PackedScene" uid="uid://oe522e0dgegk" path="res://enemies/goblin.tscn" id="2_88g4w"]
+[ext_resource type="PackedScene" path="res://enemies/goblin.tscn" id="2_88g4w"]
 [ext_resource type="PackedScene" uid="uid://cticdfs7hnia8" path="res://enemies/pawn.tscn" id="3_sd5at"]
-[ext_resource type="PackedScene" uid="uid://di7dq2cdew4da" path="res://enemies/sheep.tscn" id="4_msbaq"]
+[ext_resource type="PackedScene" uid="uid://di7dq2cdew4da" path="res://enemies/footman.tscn" id="4_msbaq"]
 
 [sub_resource type="Curve2D" id="Curve2D_x6fp7"]
 _data = {

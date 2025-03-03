@@ -1,7 +1,8 @@
-[gd_scene load_steps=43 format=3 uid="uid://168ix467gg"]
+[gd_scene load_steps=46 format=3 uid="uid://168ix467gg"]
 
 [ext_resource type="Script" path="res://player/goblin.gd" id="1_ogncs"]
 [ext_resource type="Texture2D" uid="uid://blqfpwdxoskei" path="res://assets/Tiny Swords/Factions/Goblins/Troops/Torch/Red/Torch_Red.png" id="1_yccur"]
+[ext_resource type="PackedScene" uid="uid://cel0wuauscsvq" path="res://misc/skull.tscn" id="2_k4l16"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3bivm"]
 atlas = ExtResource("1_yccur")
@@ -248,6 +249,114 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="Animation" id="Animation_rhcfw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GoblinSprite:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_nn6fa"]
+resource_name = "attack_d"
+length = 0.6
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GoblinSprite:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 3), Vector2i(1, 3), Vector2i(2, 3), Vector2i(3, 3), Vector2i(4, 3), Vector2i(5, 3)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"deal_damage"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_fcuht"]
+resource_name = "attack_h"
+length = 0.6
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GoblinSprite:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 2), Vector2i(1, 2), Vector2i(2, 2), Vector2i(3, 2), Vector2i(4, 2), Vector2i(5, 2)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"deal_damage"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_jbien"]
+resource_name = "attack_u"
+length = 0.6
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GoblinSprite:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 4), Vector2i(1, 4), Vector2i(2, 4), Vector2i(3, 4), Vector2i(4, 4), Vector2i(5, 4)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"deal_damage"
+}]
+}
+
 [sub_resource type="Animation" id="Animation_t3u05"]
 resource_name = "idle"
 length = 0.7
@@ -264,21 +373,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0), Vector2i(3, 0), Vector2i(4, 0), Vector2i(5, 0), Vector2i(6, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_rhcfw"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("GoblinSprite:frame_coords")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector2i(0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_08jqi"]
@@ -299,57 +393,6 @@ tracks/0/keys = {
 "values": [Vector2i(0, 1), Vector2i(1, 1), Vector2i(2, 1), Vector2i(3, 1), Vector2i(4, 1), Vector2i(5, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_fcuht"]
-resource_name = "attack_h"
-length = 0.6
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("GoblinSprite:frame_coords")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [Vector2i(0, 2), Vector2i(1, 2), Vector2i(2, 2), Vector2i(3, 2), Vector2i(4, 2), Vector2i(5, 2)]
-}
-
-[sub_resource type="Animation" id="Animation_nn6fa"]
-resource_name = "attack_d"
-length = 0.6
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("GoblinSprite:frame_coords")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [Vector2i(0, 3), Vector2i(1, 3), Vector2i(2, 3), Vector2i(3, 3), Vector2i(4, 3), Vector2i(5, 3)]
-}
-
-[sub_resource type="Animation" id="Animation_jbien"]
-resource_name = "attack_u"
-length = 0.6
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("GoblinSprite:frame_coords")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [Vector2i(0, 4), Vector2i(1, 4), Vector2i(2, 4), Vector2i(3, 4), Vector2i(4, 4), Vector2i(5, 4)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ttiup"]
 _data = {
 "RESET": SubResource("Animation_rhcfw"),
@@ -362,11 +405,18 @@ _data = {
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fqd4w"]
 radius = 15.0
-height = 52.0
+height = 48.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_aqctg"]
+radius = 104.005
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m2fl2"]
+radius = 37.0135
 
 [node name="Goblin" type="CharacterBody2D"]
 motion_mode = 1
 script = ExtResource("1_ogncs")
+death_prefab = ExtResource("2_k4l16")
 
 [node name="GoblinAnimation" type="AnimatedSprite2D" parent="."]
 visible = false
@@ -376,6 +426,7 @@ autoplay = "idle"
 frame_progress = 0.528976
 
 [node name="GoblinSprite" type="Sprite2D" parent="."]
+position = Vector2(0, -31)
 texture = ExtResource("1_yccur")
 hframes = 7
 vframes = 5
@@ -387,5 +438,18 @@ libraries = {
 autoplay = "idle"
 
 [node name="GoblinHitbox" type="CollisionShape2D" parent="."]
-position = Vector2(0, 5)
+position = Vector2(0, -30)
 shape = SubResource("CapsuleShape2D_fqd4w")
+
+[node name="TorchArea" type="Area2D" parent="."]
+position = Vector2(0, -31)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TorchArea"]
+shape = SubResource("CircleShape2D_aqctg")
+debug_color = Color(1, 0.00392157, 0.0666667, 0.0705882)
+
+[node name="HitboxArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxArea"]
+position = Vector2(0, -31)
+shape = SubResource("CircleShape2D_m2fl2")
