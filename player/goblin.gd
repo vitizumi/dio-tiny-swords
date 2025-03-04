@@ -9,6 +9,7 @@ extends CharacterBody2D
 # Export vars -> can edit on Inspector
 @export var speed: float = 3.0
 @export var torch_damage: int = 2
+@export var max_health: int = 100
 @export var health: int = 100
 @export var death_prefab: PackedScene
 # Character vars
@@ -90,7 +91,7 @@ func hitbox_check(delta: float) -> void:
 func damage(amount: int) -> void:
 	# subtract amount param from health
 	health -= amount
-	print("Player recebeu dano de ", amount, ". A vida do player é ", health)
+	print("Player recebeu dano de ", amount, ". A vida do player é ", health, "/", max_health)
 
 	# modulate and tween to make the sprite flash red
 	modulate = Color.RED
@@ -102,6 +103,13 @@ func damage(amount: int) -> void:
 	# if health below 0, call die func
 	if health <= 0:
 		die()
+		
+func heal(amount: int) -> int:
+	health += amount
+	if health > max_health:
+		health = max_health
+	print("Yum! Heal de ", amount, " . Vida: ", health, "/", max_health)
+	return health
 
 func die() -> void:
 	# if death_prefab exists, make a new instance of death_prefab on the same position as enemy

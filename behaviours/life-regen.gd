@@ -7,6 +7,6 @@ func _ready() -> void:
 	
 func on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
-		var player: Player = body
-		player.heal(regen_amt)
+		var goblin: Goblin = body
+		goblin.heal(regen_amt)
 		queue_free()

@@ -413,7 +413,7 @@ radius = 104.005
 [sub_resource type="CircleShape2D" id="CircleShape2D_m2fl2"]
 radius = 37.0135
 
-[node name="Goblin" type="CharacterBody2D"]
+[node name="Goblin" type="CharacterBody2D" groups=["player"]]
 motion_mode = 1
 script = ExtResource("1_ogncs")
 death_prefab = ExtResource("2_k4l16")
