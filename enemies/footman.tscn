@@ -56,8 +56,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r6ycv"]
-radius = 20.6667
-height = 50.6667
+radius = 15.3333
+height = 36.0
 
 [node name="Footman" type="CharacterBody2D" groups=["enemies"]]
 scale = Vector2(1.5, 1.5)
@@ -73,7 +73,7 @@ autoplay = "new_animation"
 frame_progress = 0.664369
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(0, -25.3333)
+position = Vector2(0, -16)
 shape = SubResource("CapsuleShape2D_r6ycv")
 
 [node name="FollowPlayer" type="Node" parent="."]

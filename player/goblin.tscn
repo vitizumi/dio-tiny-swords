@@ -404,15 +404,14 @@ _data = {
 "run": SubResource("Animation_08jqi")
 }
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fqd4w"]
-radius = 15.0
-height = 48.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_31210"]
+radius = 16.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_aqctg"]
-radius = 104.005
+radius = 128.141
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m2fl2"]
-radius = 37.0135
+radius = 28.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7bl33"]
 bg_color = Color(0, 0, 0, 1)
@@ -448,8 +447,8 @@ libraries = {
 autoplay = "idle"
 
 [node name="GoblinHitbox" type="CollisionShape2D" parent="."]
-position = Vector2(0, -30)
-shape = SubResource("CapsuleShape2D_fqd4w")
+position = Vector2(0, -13)
+shape = SubResource("CircleShape2D_31210")
 
 [node name="TorchArea" type="Area2D" parent="."]
 position = Vector2(0, -31)
@@ -461,7 +460,7 @@ debug_color = Color(1, 0.00392157, 0.0666667, 0.0705882)
 [node name="HitboxArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxArea"]
-position = Vector2(0, -31)
+position = Vector2(0, -18)
 shape = SubResource("CircleShape2D_m2fl2")
 
 [node name="HealthProgressBar" type="ProgressBar" parent="."]

@@ -20,7 +20,6 @@ position = Vector2(530, 54)
 
 [node name="MobSpawner" parent="." instance=ExtResource("4_mgwyu")]
 position = Vector2(17, 20)
-mobs_per_min = 30.0
 
 [node name="Footman" parent="." instance=ExtResource("5_g8tb6")]
 position = Vector2(714, 333)
