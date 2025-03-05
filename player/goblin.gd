@@ -28,6 +28,11 @@ var hitbox_cooldown: float = 0.0
 var blast_cooldown: float = 0.0
 var input_vector: Vector2 = Vector2(0, 0)
 
+signal meat_collected(value:int)
+
+func _ready() -> void:
+	GameManager.goblin = self
+
 func _process(delta: float) -> void:
 	# Send position to the game manager class
 	GameManager.player_position = position

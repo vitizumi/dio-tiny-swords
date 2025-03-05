@@ -3,9 +3,7 @@ extends Node2D
 
 @export var health: int = 10
 @export var death_prefab: PackedScene
-
-@onready var damage_digit_marker = $DamageDigitMarker
-
+@onready var damage_digit_marker: Marker2D = $Marker2D
 var damage_digit_prefab: PackedScene
 
 func _ready() -> void:

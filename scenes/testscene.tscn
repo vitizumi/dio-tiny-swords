@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dn8lxxiqnaqvi"]
+[gd_scene load_steps=7 format=3 uid="uid://dn8lxxiqnaqvi"]
 
 [ext_resource type="PackedScene" uid="uid://168ix467gg" path="res://player/goblin.tscn" id="1_ogfkm"]
 [ext_resource type="PackedScene" uid="uid://b1k52shbbxatn" path="res://systems/mob_spawner.tscn" id="4_mgwyu"]
 [ext_resource type="PackedScene" uid="uid://utda8xjtdd5x" path="res://enemies/sheep.tscn" id="4_xaa6y"]
 [ext_resource type="PackedScene" uid="uid://di7dq2cdew4da" path="res://enemies/footman.tscn" id="5_g8tb6"]
 [ext_resource type="PackedScene" uid="uid://bjxpgwiyw73x8" path="res://misc/meat.tscn" id="5_p6jrt"]
+[ext_resource type="PackedScene" uid="uid://dx4blvxhoeero" path="res://ui/game_ui.tscn" id="6_h6ki1"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -23,3 +24,5 @@ mobs_per_min = 30.0
 
 [node name="Footman" parent="." instance=ExtResource("5_g8tb6")]
 position = Vector2(714, 333)
+
+[node name="GameUi" parent="." instance=ExtResource("6_h6ki1")]

@@ -9,6 +9,7 @@ subpixel_positioning = 0
 
 [sub_resource type="LabelSettings" id="LabelSettings_s7eey"]
 font = SubResource("SystemFont_tcp3x")
+font_size = 24
 font_color = Color(0.87635, 0.334162, 0.340823, 1)
 outline_size = 8
 outline_color = Color(0, 0, 0, 1)
@@ -54,7 +55,6 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_5eiyd"]
 resource_name = "default"
-length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -62,7 +62,7 @@ tracks/0/path = NodePath("Node2D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
+"times": PackedFloat32Array(0, 0.966667),
 "transitions": PackedFloat32Array(0.098073, 1),
 "update": 0,
 "values": [Vector2(0, 15), Vector2(0, -25)]
@@ -74,7 +74,7 @@ tracks/1/path = NodePath("Node2D:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
+"times": PackedFloat32Array(0, 0.966667),
 "transitions": PackedFloat32Array(0.15932, 1),
 "update": 0,
 "values": [Vector2(1, 1), Vector2(1.05, 1.05)]
@@ -86,7 +86,7 @@ tracks/2/path = NodePath("Node2D:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.5),
+"times": PackedFloat32Array(0, 0.966667),
 "transitions": PackedFloat32Array(5.46416, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -98,7 +98,7 @@ tracks/3/path = NodePath(".")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.5),
+"times": PackedFloat32Array(1),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],

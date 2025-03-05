@@ -9,4 +9,5 @@ func on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		var goblin: Goblin = body
 		goblin.heal(regen_amt)
+		goblin.meat_collected.emit(regen_amt)
 		queue_free()
