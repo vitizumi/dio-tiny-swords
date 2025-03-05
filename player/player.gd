@@ -1,6 +1,6 @@
 class_name Player
 extends CharacterBody2D
-
+ 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var sword_area: Area2D = $SwordArea

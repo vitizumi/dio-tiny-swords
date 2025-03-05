@@ -1,8 +1,9 @@
-[gd_scene load_steps=46 format=3 uid="uid://168ix467gg"]
+[gd_scene load_steps=49 format=3 uid="uid://168ix467gg"]
 
 [ext_resource type="Script" path="res://player/goblin.gd" id="1_ogncs"]
 [ext_resource type="Texture2D" uid="uid://blqfpwdxoskei" path="res://assets/Tiny Swords/Factions/Goblins/Troops/Torch/Red/Torch_Red.png" id="1_yccur"]
 [ext_resource type="PackedScene" uid="uid://cel0wuauscsvq" path="res://misc/skull.tscn" id="2_k4l16"]
+[ext_resource type="PackedScene" uid="uid://wdoab0sor3ra" path="res://misc/fart.tscn" id="2_ue40k"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3bivm"]
 atlas = ExtResource("1_yccur")
@@ -413,9 +414,18 @@ radius = 104.005
 [sub_resource type="CircleShape2D" id="CircleShape2D_m2fl2"]
 radius = 37.0135
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7bl33"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_boifn"]
+bg_color = Color(1, 0, 0, 1)
+
 [node name="Goblin" type="CharacterBody2D" groups=["player"]]
 motion_mode = 1
 script = ExtResource("1_ogncs")
+blast_damage = 1
+blast_interval = 15.0
+blast_scene = ExtResource("2_ue40k")
 death_prefab = ExtResource("2_k4l16")
 
 [node name="GoblinAnimation" type="AnimatedSprite2D" parent="."]
@@ -453,3 +463,13 @@ debug_color = Color(1, 0.00392157, 0.0666667, 0.0705882)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxArea"]
 position = Vector2(0, -31)
 shape = SubResource("CircleShape2D_m2fl2")
+
+[node name="HealthProgressBar" type="ProgressBar" parent="."]
+offset_left = -32.0
+offset_top = 9.0
+offset_right = 32.0
+offset_bottom = 19.0
+theme_override_styles/background = SubResource("StyleBoxFlat_7bl33")
+theme_override_styles/fill = SubResource("StyleBoxFlat_boifn")
+value = 50.0
+show_percentage = false

@@ -6,9 +6,16 @@ extends CharacterBody2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var torch_area: Area2D = $TorchArea
 @onready var hitbox_area: Area2D = $HitboxArea
+@onready var health_prog_bar: ProgressBar = $HealthProgressBar
 # Export vars -> can edit on Inspector
+@export_category("Movement")
 @export var speed: float = 3.0
+@export_category("Attack")
 @export var torch_damage: int = 2
+@export var blast_damage: int = 2
+@export var blast_interval: float = 30
+@export var blast_scene: PackedScene
+@export_category("Health")
 @export var max_health: int = 100
 @export var health: int = 100
 @export var death_prefab: PackedScene
@@ -18,6 +25,7 @@ var was_running: bool = false
 var is_attacking: bool = false
 var attack_cooldown: float = 0.0
 var hitbox_cooldown: float = 0.0
+var blast_cooldown: float = 0.0
 var input_vector: Vector2 = Vector2(0, 0)
 
 func _process(delta: float) -> void:
@@ -26,9 +34,21 @@ func _process(delta: float) -> void:
 	
 	# Call to read_input func that reads player input
 	read_input()
+	# Call to check for attack
+	update_attack_cd(delta)
+	# Attack
+	if Input.is_action_just_pressed("attack"):
+		attack()
 	# Call to play_anim to update sprite animation
 	play_run_anim()
-	update_attack_cd(delta)
+	
+	# Check for taking damage
+	hitbox_check(delta)
+	
+	update_blast(delta)
+	
+	health_prog_bar.max_value = max_health
+	health_prog_bar.value = health
 	
 func _physics_process(delta: float) -> void:	
 	# use input vector to determine directional velocity
@@ -38,12 +58,6 @@ func _physics_process(delta: float) -> void:
 	velocity = lerp(velocity, target_velocity, 0.05)
 	move_and_slide()
 	
-	# Attack
-	if Input.is_action_just_pressed("attack"):
-		attack()
-		
-	# Check for taking damage
-	hitbox_check(delta)
 		
 func attack() -> void:
 	# Check if attacking to stop bashing
@@ -73,6 +87,28 @@ func deal_damage() -> void:
 			var dot_product = direction_to_enemy.dot(attack_direction)
 			if dot_product >= 0.3:
 				enemy.damage(torch_damage)
+			
+func update_attack_cd(delta: float) -> void:
+	# Timer for attack cooldown
+	# Subtract time since last frame from attack cooldown until it's below 0, then update attacking status
+	if is_attacking:
+		attack_cooldown -= delta
+		if attack_cooldown <= 0.0:
+			is_attacking = false
+			is_running = false
+			animation_player.play("idle")
+			
+func update_blast(delta: float) -> void:
+	# Timer for fart cooldown
+	# Set blast cooldown to the exported blast_interval var
+	blast_cooldown -= delta
+	if blast_cooldown > 0: return
+	blast_cooldown = blast_interval
+	
+	# Instantiate blast scene, set the damage amount, add as a child to the goblin
+	var blast = blast_scene.instantiate()
+	blast.damage_amount = blast_damage
+	add_child(blast)
 				
 func hitbox_check(delta: float) -> void:
 	# Time countdown for hitbox cd
@@ -89,9 +125,10 @@ func hitbox_check(delta: float) -> void:
 			damage(damage_amount)
 	
 func damage(amount: int) -> void:
+	if health <= 0: return
+	
 	# subtract amount param from health
 	health -= amount
-	print("Player recebeu dano de ", amount, ". A vida do player é ", health, "/", max_health)
 
 	# modulate and tween to make the sprite flash red
 	modulate = Color.RED
@@ -151,13 +188,3 @@ func play_run_anim() -> void:
 			sprite.flip_h = false
 		elif input_vector.x < 0:
 			sprite.flip_h = true
-			
-func update_attack_cd(delta: float) -> void:
-	# Timer for attack cooldown
-	# Subtract time since last frame from attack cooldown until it's below 0, then update attacking status
-	if is_attacking:
-		attack_cooldown -= delta
-		if attack_cooldown <= 0.0:
-			is_attacking = false
-			is_running = false
-			animation_player.play("idle")

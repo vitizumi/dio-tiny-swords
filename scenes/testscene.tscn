@@ -1,15 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://dn8lxxiqnaqvi"]
+[gd_scene load_steps=6 format=3 uid="uid://dn8lxxiqnaqvi"]
 
 [ext_resource type="PackedScene" uid="uid://168ix467gg" path="res://player/goblin.tscn" id="1_ogfkm"]
 [ext_resource type="PackedScene" uid="uid://b1k52shbbxatn" path="res://systems/mob_spawner.tscn" id="4_mgwyu"]
 [ext_resource type="PackedScene" uid="uid://utda8xjtdd5x" path="res://enemies/sheep.tscn" id="4_xaa6y"]
+[ext_resource type="PackedScene" uid="uid://di7dq2cdew4da" path="res://enemies/footman.tscn" id="5_g8tb6"]
 [ext_resource type="PackedScene" uid="uid://bjxpgwiyw73x8" path="res://misc/meat.tscn" id="5_p6jrt"]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Goblin" parent="." instance=ExtResource("1_ogfkm")]
 position = Vector2(529, 298)
-health = 30
 
 [node name="Sheep" parent="." instance=ExtResource("4_xaa6y")]
 position = Vector2(518, 537)
@@ -19,3 +19,7 @@ position = Vector2(530, 54)
 
 [node name="MobSpawner" parent="." instance=ExtResource("4_mgwyu")]
 position = Vector2(17, 20)
+mobs_per_min = 30.0
+
+[node name="Footman" parent="." instance=ExtResource("5_g8tb6")]
+position = Vector2(714, 333)
