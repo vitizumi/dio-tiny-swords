@@ -15,6 +15,9 @@ func _ready() -> void:
 	sprite = enemy.get_node("AnimatedSprite2D")
 
 func _physics_process(delta: float) -> void:
+	# Ignore if gameover
+	if GameManager.is_gameover: return
+	
 	# Set the player_pos (the target movement location) to the one grabbed from the autoloaded script GameManager
 	# Use it to calculate the target vector
 	var player_position = GameManager.player_position

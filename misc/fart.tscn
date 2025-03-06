@@ -205,7 +205,7 @@ blend_mode = 1
 radius = 132.257
 
 [node name="Fart" type="Node2D"]
-scale = Vector2(1.5, 1.5)
+scale = Vector2(2, 2)
 script = ExtResource("1_8xnoj")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

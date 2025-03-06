@@ -1,13 +1,14 @@
-[gd_scene load_steps=40 format=3 uid="uid://dcyghqfuj52nc"]
+[gd_scene load_steps=42 format=3 uid="uid://dcyghqfuj52nc"]
 
+[ext_resource type="Script" path="res://main.gd" id="1_7n3py"]
 [ext_resource type="PackedScene" uid="uid://168ix467gg" path="res://player/goblin.tscn" id="1_g3wsl"]
 [ext_resource type="Texture2D" uid="uid://681537xah2ae" path="res://assets/Tiny Swords/Terrain/Ground/Tilemap_Flat.png" id="1_t4qqe"]
 [ext_resource type="Texture2D" uid="uid://bb08dynt2f54r" path="res://assets/Tiny Swords/Deco/01.png" id="2_5klwi"]
 [ext_resource type="PackedScene" uid="uid://b1k52shbbxatn" path="res://systems/mob_spawner.tscn" id="2_877t1"]
+[ext_resource type="PackedScene" uid="uid://c85g87evptxgm" path="res://ui/game_over_ui.tscn" id="2_gg45x"]
 [ext_resource type="Texture2D" uid="uid://ccc7c8x34viey" path="res://assets/Tiny Swords/Terrain/Water/Water.png" id="3_emk3t"]
 [ext_resource type="PackedScene" uid="uid://dx4blvxhoeero" path="res://ui/game_ui.tscn" id="3_sqse6"]
 [ext_resource type="Texture2D" uid="uid://b7d5bsm6i3u6l" path="res://assets/Tiny Swords/Terrain/Water/Rocks/Rocks_01.png" id="4_22run"]
-[ext_resource type="PackedScene" uid="uid://bjxpgwiyw73x8" path="res://misc/meat.tscn" id="4_am5di"]
 [ext_resource type="Texture2D" uid="uid://cc570oh6prcwb" path="res://assets/Tiny Swords/Terrain/Water/Rocks/Rocks_04.png" id="5_i1xni"]
 [ext_resource type="Texture2D" uid="uid://hydhjwei4l88" path="res://assets/Tiny Swords/Terrain/Water/Rocks/Rocks_02.png" id="6_8i4f1"]
 [ext_resource type="Texture2D" uid="uid://0ygdffdbt4ro" path="res://assets/Tiny Swords/Terrain/Water/Rocks/Rocks_03.png" id="7_8v4p2"]
@@ -19,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://c4mhwdqejgqmj" path="res://assets/Tiny Swords/Deco/14.png" id="13_y5bjy"]
 [ext_resource type="Texture2D" uid="uid://b3fhhd3dxtas0" path="res://assets/Tiny Swords/Deco/13.png" id="14_440t1"]
 [ext_resource type="Texture2D" uid="uid://dxfscju5n6erg" path="res://assets/Tiny Swords/Deco/02.png" id="15_hx4cq"]
+[ext_resource type="Script" path="res://systems/diff_system.gd" id="17_2w4mn"]
 [ext_resource type="PackedScene" uid="uid://bvbsyqyy77cgo" path="res://misc/tree.tscn" id="20_bh2fl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_64wss"]
@@ -328,8 +330,11 @@ size = Vector2(6223, 1199.75)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hrlkb"]
 size = Vector2(1420.63, 2437.25)
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" node_paths=PackedStringArray("game_ui")]
 y_sort_enabled = true
+script = ExtResource("1_7n3py")
+game_ui = NodePath("GameUI")
+game_over_ui_template = ExtResource("2_gg45x")
 
 [node name="TileMap" type="TileMap" parent="."]
 y_sort_enabled = true
@@ -380,11 +385,15 @@ update_scale = false
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(610, 337)
 
+[node name="DifficultySystem" type="Node" parent="." node_paths=PackedStringArray("mob_spawner")]
+script = ExtResource("17_2w4mn")
+mob_spawner = NodePath("../MobSpawner")
+initial_spawn_rate = 30.0
+spawns_minute = 60
+break_intensity = 0.33
+
 [node name="MobSpawner" parent="." instance=ExtResource("2_877t1")]
 position = Vector2(610, 337)
-
-[node name="Meat" parent="." instance=ExtResource("4_am5di")]
-position = Vector2(833, 331)
 
 [node name="Trees" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -410,4 +419,4 @@ position = Vector2(380, 1407)
 [node name="Tree7" parent="Trees" instance=ExtResource("20_bh2fl")]
 position = Vector2(2059, 869)
 
-[node name="GameUi" parent="." instance=ExtResource("3_sqse6")]
+[node name="GameUI" parent="." instance=ExtResource("3_sqse6")]
