@@ -32,7 +32,7 @@ font_color = Color(0, 0, 0, 1)
 atlas = ExtResource("3_7k3mc")
 region = Rect2(32, 48, 72, 64)
 
-[node name="GameUi" type="CanvasLayer"]
+[node name="GameUI" type="CanvasLayer"]
 script = ExtResource("1_wym75")
 
 [node name="TimerLabel" type="Label" parent="."]

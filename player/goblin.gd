@@ -28,10 +28,11 @@ var hitbox_cooldown: float = 0.0
 var blast_cooldown: float = 0.0
 var input_vector: Vector2 = Vector2(0, 0)
 
-signal meat_collected(value:int)
+signal meat_collected(value: int)
 
 func _ready() -> void:
 	GameManager.goblin = self
+	meat_collected.connect(func(value: int): GameManager.meat_counter += 1)
 
 func _process(delta: float) -> void:
 	# Send position to the game manager class
@@ -154,6 +155,8 @@ func heal(amount: int) -> int:
 	return health
 
 func die() -> void:
+	GameManager.end_game()
+	
 	# if death_prefab exists, make a new instance of death_prefab on the same position as enemy
 	if death_prefab: 
 		var death_obj = death_prefab.instantiate()
